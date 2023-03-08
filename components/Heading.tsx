@@ -2,12 +2,12 @@ import React from 'react'
 import Image, { StaticImageData } from 'next/image'
 
 type Props = {
-  imageSrc?: StaticImageData
+  imageSrc?: string
   title: string
   details?: string
   imageH?: number
   imageW?: number
-  imageAlt: string
+  imageAlt: string | ''
 }
 
 export default function Heading({
@@ -21,7 +21,7 @@ export default function Heading({
   return (
     <div className="flex flex-col items-center gap-4 mt-10">
       {imageSrc && imageH && imageW && (
-        <Image
+        <img
           src={imageSrc}
           height={imageH}
           width={imageW}
