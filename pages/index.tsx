@@ -1,7 +1,6 @@
 import Heading from '@/components/Heading'
 import Nav from '@/components/Nav'
 import Head from 'next/head'
-import profile from '@/public/images/profile.jpg'
 
 export default function Home() {
   return (
@@ -24,7 +23,7 @@ export default function Home() {
       <Nav />
       <main>
         <Heading
-          imageSrc={profile}
+          imageSrc={'https://source.unsplash.com/random/300x300?music'}
           imageH={144}
           imageW={144}
           imageAlt=""
