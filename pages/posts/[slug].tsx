@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import client from '@/client'
+import groq from 'groq'
+import { PortableText } from '@portabletext/react'
 
 import Heading from '@/components/Heading'
 
@@ -21,15 +23,18 @@ export default function Post({ post }: any) {
           imageH={300}
           imageW={300}
         />
-        <p>{post?.body[0].children[0].text}</p>
+        {/* <p>{post?.body[0].children[0].text}</p> */}
+        <PortableText value={post?.body} />
       </article>
     </>
   )
 }
 
+const query = groq`*[_type == "post" && slug.current == $slug][0]`
+
 export async function getStaticPaths() {
   const paths = await client.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
+    groq`*[_type == "post" && defined(slug.current)][].slug.current`
   )
 
   return {
@@ -42,12 +47,7 @@ export async function getStaticProps(context: {
   params: { slug?: '' | undefined }
 }) {
   const { slug = '' } = context.params
-  const post = await client.fetch(
-    `
-  *[_type == "post" && slug.current == $slug][0]
-  `,
-    { slug }
-  )
+  const post = await client.fetch(query, { slug })
 
   return {
     props: {
