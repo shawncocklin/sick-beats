@@ -2,6 +2,14 @@ import Heading from '@/components/Heading'
 import Nav from '@/components/Nav'
 import Head from 'next/head'
 
+// TODO: pick an image for the home page
+import profile2 from '@/public/images/profile2.png'
+import profile2alt from '@/public/images/profile2alt.png'
+
+import Image from 'next/image'
+
+import { fraunces, novaMono } from '@/utils/fonts'
+
 export default function Home() {
   return (
     <>
@@ -20,16 +28,20 @@ export default function Home() {
           href="/favicon.ico"
         />
       </Head>
-      <Nav />
       <main>
-        <Heading
-          imageSrc={'https://source.unsplash.com/random/300x300?music'}
-          imageH={144}
-          imageW={144}
-          imageAlt=""
-          title="Welcome to Sick Beats"
-          details="A blog where I over-analyze my favorite songs"
-        />
+        <div className="flex flex-col items-center gap-10 mt-10">
+          <Image
+            src={profile2alt}
+            alt="drawing of cat wearing sunglasses and headphones"
+            className="rounded-full w-[250px] h-[250px]"
+          />
+          <h1 className={`${novaMono.variable} font-mono text-6xl`}>
+            Welcome to Sick Beats
+          </h1>
+          <p className={`${fraunces.variable} font-serif text-2xl`}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, sint!
+          </p>
+        </div>
       </main>
     </>
   )

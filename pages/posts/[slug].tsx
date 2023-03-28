@@ -4,6 +4,7 @@ import Head from 'next/head'
 import client from '@/client'
 import groq from 'groq'
 import { PortableText } from '@portabletext/react'
+import { fraunces } from '@/utils/fonts'
 
 import Heading from '@/components/Heading'
 
@@ -13,7 +14,7 @@ export default function Post({ post }: any) {
       <Head>
         <title>{post?.title}</title>
       </Head>
-      <Link href="/">Home</Link>
+
       <article>
         <Heading
           title={post?.title}
@@ -24,7 +25,9 @@ export default function Post({ post }: any) {
           imageW={300}
         />
         {/* <p>{post?.body[0].children[0].text}</p> */}
-        <PortableText value={post?.body} />
+        <div className={`${fraunces.variable} font-serif mt-16`}>
+          <PortableText value={post?.body} />
+        </div>
       </article>
     </>
   )

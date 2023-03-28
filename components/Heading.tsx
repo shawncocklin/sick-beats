@@ -1,5 +1,5 @@
 import React from 'react'
-import Image, { StaticImageData } from 'next/image'
+import { fraunces, novaMono } from '@/utils/fonts'
 
 type Props = {
   imageSrc?: string
@@ -19,7 +19,7 @@ export default function Heading({
   details,
 }: Props) {
   return (
-    <div className="flex flex-col items-center gap-4 mt-10">
+    <div className="flex flex-col items-center gap-10 mt-10">
       {imageSrc && imageH && imageW && (
         <img
           src={imageSrc}
@@ -30,8 +30,8 @@ export default function Heading({
         />
       )}
 
-      <h1>{title}</h1>
-      <h2>{details}</h2>
+      <h1 className={`${novaMono.variable} font-mono text-6xl`}>{title}</h1>
+      <h2 className={`${fraunces.variable} font-serif text-2xl`}>{details}</h2>
     </div>
   )
 }
