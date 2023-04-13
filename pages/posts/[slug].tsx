@@ -14,7 +14,7 @@ export default function Post({ post }: any) {
       <Head>
         <title>{post?.title}</title>
       </Head>
-
+      {console.log(post)}
       <article>
         <Heading
           title={post?.title}
@@ -24,7 +24,6 @@ export default function Post({ post }: any) {
           imageH={300}
           imageW={300}
         />
-        {/* <p>{post?.body[0].children[0].text}</p> */}
         <div className={`${fraunces.variable} font-serif mt-16`}>
           <PortableText value={post?.body} />
         </div>

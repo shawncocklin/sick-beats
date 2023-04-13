@@ -6,7 +6,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className={`flex flex-col justify-center items-center py-5`}>
+    <div className={`flex flex-col justify-center items-center py-5 px-6`}>
       <Nav />
       {children}
     </div>

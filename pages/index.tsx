@@ -2,8 +2,6 @@ import Heading from '@/components/Heading'
 import Nav from '@/components/Nav'
 import Head from 'next/head'
 
-// TODO: pick an image for the home page
-import profile2 from '@/public/images/profile2.png'
 import profile2alt from '@/public/images/profile2alt.png'
 
 import Image from 'next/image'
@@ -35,7 +33,7 @@ export default function Home() {
             alt="drawing of cat wearing sunglasses and headphones"
             className="rounded-full w-[250px] h-[250px]"
           />
-          <h1 className={`${novaMono.variable} font-mono text-6xl`}>
+          <h1 className={`${novaMono.variable} font-mono text-6xl text-center`}>
             Welcome to Sick Beats
           </h1>
           <p className={`${fraunces.variable} font-serif text-2xl`}>
